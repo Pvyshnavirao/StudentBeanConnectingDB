@@ -20,15 +20,21 @@ public class StudentApplication {
 		ApplicationContext context = SpringApplication.run(StudentApplication.class, args);
 		Student s = context.getBean(Student.class);
 
-		s.setSid(19);
+		s.setSid(193);
 		s.setSname("vysh");
 		s.setMarks(4);
 
+
+
 		StudentService service = context.getBean(StudentService.class);
 		service.addStudent(s );
-
 		List<Student> students= service.getStudents();
 		System.out.println(students);
+
+		service.delete(s);
+
+		List<Student> students1= service.getStudents();
+		System.out.println(students1);
 
 	}
 

@@ -27,6 +27,23 @@ public class StudentRepo {
     }
 
 
+//    public void delete(Student sid) {
+//
+//        String sql = "DELETE FROM student WHERE sid=16 ";
+//
+//        int rows = jdbc.execute(sql); // assuming sid is a field in Student class
+//               System.out.println(rows + " rows deleted.");
+//
+//
+//    }
+
+    public Student delete(Student sid) {
+        String sql = "DELETE FROM student WHERE sid=" + sid.getSid();
+        jdbc.execute(sql);
+        System.out.println("deleting " + sid);
+        return sid;
+    }
+
     public List<Student> findAll() {
 
         String sql = "select * from student";
@@ -42,5 +59,6 @@ public class StudentRepo {
 
         return jdbc.query(sql, mapper);
     }
+
 }
 
